@@ -35,6 +35,8 @@ export function Shell() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let revert: (() => void) | null = null;
     let tick: (() => void) | null = null;
+    let lenisTick: ((time: number) => void) | null = null;
+    let lenis: { destroy: () => void } | null = null;
     let dead = false;
 
     void (async () => {
@@ -43,6 +45,18 @@ export function Shell() {
       if (dead) return;
       gsap.registerPlugin(ScrollTrigger);
 
+      if (!reduce) {
+        const { default: Lenis } = await import("lenis");
+        if (dead) return;
+        const instance = new Lenis({ lerp: 0.1 });
+        lenis = instance;
+        instance.on("scroll", ScrollTrigger.update);
+        lenisTick = (time: number) => {
+          instance.raf(time * 1000);
+        };
+        gsap.ticker.add(lenisTick);
+        gsap.ticker.lagSmoothing(0);
+      }
       if (reduce) {
         document.querySelectorAll("mark.hl").forEach((node) => node.classList.add("on"));
       }
@@ -96,9 +110,13 @@ export function Shell() {
 
     return () => {
       dead = true;
-      if (tick) {
-        void import("gsap").then(({ gsap }) => gsap.ticker.remove(tick!));
+      if (tick || lenisTick) {
+        void import("gsap").then(({ gsap }) => {
+          if (tick) gsap.ticker.remove(tick);
+          if (lenisTick) gsap.ticker.remove(lenisTick);
+        });
       }
+      lenis?.destroy();
       revert?.();
       applyTheme(0);
     };
@@ -124,7 +142,7 @@ export function Shell() {
   return (
     <div className="shell">
       {live ? null : <Preloader onDone={() => setLive(true)} />}
-      <nav className="spine" aria-label="Secties">
+      <nav className="spine" aria-label="Hoofdnavigatie">
         {SECTIONS.map((section) => (
           <a
             key={section.id}
@@ -137,14 +155,14 @@ export function Shell() {
         ))}
         <span className="spine-word">Daan Roosenbrand — Rotterdam</span>
       </nav>
-      <div className="shell-main">
+      <main className="shell-main" id="inhoud">
         <Hero />
         <Bio />
         <Podium />
         <Roles />
         <Rider />
-      </div>
-      <nav className="dock" aria-label="Secties">
+      </main>
+      <nav className="dock" aria-label="Hoofdnavigatie">
         {SECTIONS.map((section) => (
           <a
             key={section.id}

@@ -23,6 +23,7 @@ export function NotFoundPage() {
         <p className="meta text-mute">Colofon</p>
         <strong>Daan Roosenbrand</strong>
         <p>Saxofoon · klarinet · directie · docent</p>
+        <p className="meta">© {new Date().getFullYear()} Daan Roosenbrand</p>
         <Credit />
       </footer>
     </main>

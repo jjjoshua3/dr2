@@ -57,10 +57,12 @@ export function Rider() {
   }
 
   return (
-    <section id="rider">
+    <section id="rider" aria-labelledby="rider-title">
       <header className="border-b border-ink px-5 py-7 lg:px-10 lg:py-10">
         <p className="meta text-mute">05 / Rider</p>
-        <h2 className="section-title mt-3">Schrijf de rider</h2>
+        <h2 id="rider-title" className="section-title mt-3">
+          Schrijf de rider
+        </h2>
         <p className="lede">
           Geen formulier met hokjes. Eén zin. Koper is nog leeg, messing is ingevuld. Versturen opent je mail.
         </p>
@@ -153,7 +155,7 @@ export function Rider() {
             ) : (
               <p className="meta mt-4 text-mute">Koper is open. Messing betekent: ingevuld.</p>
             )}
-            <button type="submit" className="send">
+            <button type="submit" className="send" aria-label="Verstuur de rider en open je mail">
               Verstuur de rider
             </button>
           </form>
@@ -165,6 +167,7 @@ export function Rider() {
         <strong>Daan Roosenbrand</strong>
         <p>Saxofoon · klarinet · directie · docent</p>
         <p className="meta text-mute">{COORDS} · Rotterdam (010) · Codarts</p>
+        <p className="meta">© {new Date().getFullYear()} Daan Roosenbrand</p>
         <Credit />
       </footer>
     </section>

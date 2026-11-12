@@ -8,14 +8,15 @@ function Mark({ children }: { children: ReactNode }) {
 export function Bio() {
   const phrase = MARQUEE.repeat(2);
   return (
-    <section id="bio">
+    <section id="bio" aria-labelledby="bio-title">
       <div className="grid lg:grid-cols-12">
         <div className="border-b border-ink lg:col-span-4 lg:border-r lg:border-b-0">
           <img
             src="/photos/portret.jpg"
             alt="Portret van Daan Roosenbrand"
-            width={400}
-            height={400}
+            width={800}
+            height={800}
+            decoding="async"
             className="crop-portret aspect-square w-full object-cover"
           />
           <div className="border-t border-ink px-5 py-5">
@@ -25,7 +26,7 @@ export function Bio() {
         </div>
         <div className="border-b border-ink px-5 py-7 lg:col-span-8 lg:px-10 lg:py-10">
           <p className="meta text-mute">02 / Biografie</p>
-          <h2 className="section-title mt-3">
+          <h2 id="bio-title" className="section-title mt-3">
             Mondstuk
             <br />
             als kompas
@@ -55,8 +56,8 @@ export function Bio() {
             </p>
             <p>
               Als dirigent staat hij voor <Mark>Let's Swing Delft</Mark> en de <Mark>JD's Big Band</Mark>.
-              In de lespraktijk — individueel, bij verenigingen en op <Mark>basisscholen</Mark> — blijft{" "}
-              <Mark>plezier in muziek</Mark> het middelpunt.
+              Saxofoonles in Papendrecht en Oud Gastel, en op <Mark>basisscholen</Mark>:{" "}
+              <Mark>plezier in muziek</Mark> blijft het middelpunt.
             </p>
           </div>
           <p className="factline">IMPAKT · Night at the Jukebox · Let's Swing Delft · JD's Big Band</p>
@@ -83,7 +84,15 @@ export function Bio() {
             </article>
           ) : (
             <article key={pillar.n} className="pillar">
-              <img src={pillar.image} alt={pillar.alt ?? ""} className={pillar.crop} />
+              <img
+                src={pillar.image}
+                alt={pillar.alt ?? ""}
+                width={1280}
+                height={720}
+                loading="lazy"
+                decoding="async"
+                className={pillar.crop}
+              />
               <div className="scrim" />
               <div className="pillar-copy">
                 <p className="meta">{pillar.n} / 04</p>

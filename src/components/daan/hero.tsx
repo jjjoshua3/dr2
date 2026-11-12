@@ -12,14 +12,14 @@ export function Hero() {
   const [flash, setFlash] = useState<Pick<SaxKey, "n" | "title" | "text">>(REST);
 
   return (
-    <section id="hero" className="grid lg:grid-cols-12">
+    <section id="hero" className="grid lg:grid-cols-12" aria-labelledby="hero-title">
       <div className="status-line meta order-1 lg:col-span-12">
         <p>{STATUS}</p>
         <p>01 / 05</p>
       </div>
 
-      <div className="title-cell order-2 lg:col-span-12">
-        <h1 className="hero-title">
+      <header className="title-cell order-2 lg:col-span-12">
+        <h1 id="hero-title" className="hero-title">
           <span className="ln-daan">Daan</span>
           <span className="ln-name">Roosenbrand</span>
         </h1>
@@ -30,7 +30,7 @@ export function Hero() {
           <i aria-hidden="true">·</i>
           <span>Directie</span>
         </p>
-      </div>
+      </header>
 
       <div className="photo-cell order-3 lg:order-4 lg:col-span-7">
         <img
@@ -38,6 +38,8 @@ export function Hero() {
           alt="Daan Roosenbrand speelt saxofoon op een blauw verlicht podium"
           width={960}
           height={960}
+          fetchPriority="high"
+          decoding="async"
           className="crop-solo"
         />
         <p className="photo-cap meta">Solo / podium</p>
@@ -62,7 +64,8 @@ export function Hero() {
         <p className="age-num">{DAAN_LEEFTIJD}</p>
         <p className="meta mt-2 text-mute">Jaar · Rotterdammer</p>
         <p className="mt-5 max-w-md text-lg leading-snug">
-          Saxofonist én klarinettist. Solist, bandlid, dirigent en docent. Afgestudeerd aan Codarts Rotterdam.
+          Saxofonist Rotterdam — saxofonist boeken voor solo of een Sax & DJ-set. Klarinettist,
+          bigband-dirigent en docent, afgestudeerd als Codarts-saxofonist.
         </p>
         <p className="meta pin mt-4 text-mute">{COORDS}</p>
       </div>
@@ -72,7 +75,7 @@ export function Hero() {
           <p className="meta text-copper">
             Klep {flash.n} / {String(SAX_KEYS.length).padStart(2, "0")}
           </p>
-          <h3>{flash.title}</h3>
+          <p className="flash-title">{flash.title}</p>
           <p>{flash.text}</p>
         </div>
         <div className="order-1 flex items-center justify-center lg:order-2">

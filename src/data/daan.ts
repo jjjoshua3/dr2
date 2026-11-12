@@ -90,6 +90,7 @@ export type Track = {
   artist: string;
   context: string;
   youtubeId: string;
+  alt: string;
   site?: { href: string; label: string };
 };
 
@@ -100,6 +101,7 @@ export const TRACKS: Track[] = [
     artist: "Nick Nicolai",
     context: "Ranking The Talent TV",
     youtubeId: "WjrbjayKkLQ",
+    alt: "Daan Roosenbrand op saxofoon bij It's A Man's World met Nick Nicolai",
   },
   {
     n: "02",
@@ -107,6 +109,7 @@ export const TRACKS: Track[] = [
     artist: "Vaste band",
     context: "Live",
     youtubeId: "JUqgIJMsIZc",
+    alt: "Daan Roosenbrand speelt saxofoon live met Night at the Jukebox",
     site: { href: "https://www.nightatthejukebox.nl/", label: "nightatthejukebox.nl" },
   },
   {
@@ -115,6 +118,7 @@ export const TRACKS: Track[] = [
     artist: "Excelsior & Daan Roosenbrand",
     context: "Live solo",
     youtubeId: "kKDFos-CEd8",
+    alt: "Daan Roosenbrand speelt saxofoonsolo in Baker Street live met Excelsior Papendrecht",
   },
   {
     n: "04",
@@ -122,6 +126,7 @@ export const TRACKS: Track[] = [
     artist: "Excelsior & Daan Roosenbrand",
     context: "Live solo",
     youtubeId: "WLPDBI1BV6g",
+    alt: "Daan Roosenbrand speelt de saxofoonsolo van Against All Odds live met Excelsior",
   },
   {
     n: "05",
@@ -129,6 +134,7 @@ export const TRACKS: Track[] = [
     artist: "Feest- en Cantusband Bracchus",
     context: "Eurekaweek 2019",
     youtubeId: "Mf3JzKaa7D8",
+    alt: "Daan Roosenbrand solo op saxofoon in Rotterdam Ahoy met Feest- en Cantusband Bracchus",
   },
   {
     n: "06",
@@ -136,6 +142,7 @@ export const TRACKS: Track[] = [
     artist: "Codarts Pop Orchestra",
     context: "Froukje",
     youtubeId: "rpkXoRAOxDU",
+    alt: "Daan Roosenbrand met het Codarts Pop Orchestra in Licht en Donker van Froukje",
   },
   {
     n: "07",
@@ -143,6 +150,7 @@ export const TRACKS: Track[] = [
     artist: "Codarts Pop Orchestra",
     context: "Margi Sinniah",
     youtubeId: "gVm_NMxlTmU",
+    alt: "Daan Roosenbrand op saxofoon in Hold Back met het Codarts Pop Orchestra",
   },
   {
     n: "08",
@@ -150,13 +158,15 @@ export const TRACKS: Track[] = [
     artist: "Daan Roosenbrand",
     context: "Solo",
     youtubeId: "bGFwhE3EVrA",
+    alt: "Daan Roosenbrand speelt solo Have Yourself A Merry Little Christmas op saxofoon",
   },
   {
     n: "09",
     title: "Crooner's Serenade",
     artist: "Excelsior Papendrecht",
-    context: "Waar het groeide",
+    context: "Uit het Archief • 2015",
     youtubeId: "22HLcpeJl3k",
+    alt: "Daan Roosenbrand in 2015 met Crooner's Serenade bij Excelsior Papendrecht",
   },
 ];
 

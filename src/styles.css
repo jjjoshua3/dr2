@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 @import "@fontsource/syne/700.css";
 @import "@fontsource/syne/800.css";
 @import "@fontsource/dm-sans/400.css";
@@ -29,7 +30,7 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     background: var(--color-paper);
     overflow-x: clip;
   }
@@ -368,8 +369,8 @@ mark.hl.on {
   border-bottom: 1px solid var(--color-ink);
 }
 
-.flash h3 {
-  margin-top: 0.35rem;
+.flash-title {
+  margin: 0.35rem 0 0;
   font-family: var(--font-display);
   font-weight: 800;
   text-transform: uppercase;
@@ -714,6 +715,7 @@ mark.hl.on {
 }
 
 .track-title {
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.12rem;
@@ -814,6 +816,7 @@ mark.hl.on {
 }
 
 .role-name {
+  margin: 0;
   grid-area: name;
   font-family: var(--font-display);
   font-weight: 800;
@@ -969,6 +972,7 @@ select.blank {
   letter-spacing: -0.03em;
 }
 
+/* Overlay only. De tekst in main blijft in de DOM — nooit display:none op body of main. */
 .preloader {
   position: fixed;
   inset: 0;

@@ -81,7 +81,7 @@ export function Preloader({ onDone }: { onDone: () => void }) {
   }, []);
 
   return (
-    <div className="preloader" ref={rootRef} role="dialog" aria-label="De saxofoon laadt">
+    <div className="preloader" ref={rootRef} role="dialog" aria-label="De saxofoon laadt" aria-modal="false">
       <div className="half half-top">
         <Plate />
       </div>

@@ -1,0 +1,10 @@
+node_modules
+dist
+.output
+.netlify
+.nitro
+.vinxi
+*.log
+.DS_Store
+.env
+.env.*

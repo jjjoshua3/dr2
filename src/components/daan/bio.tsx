@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { DAAN_LEEFTIJD, MARQUEE, PILLARS } from "@/data/daan";
+import { daanLeeftijd, MARQUEE, PILLARS } from "@/data/daan";
 
 function Mark({ children }: { children: ReactNode }) {
   return <mark className="hl">{children}</mark>;
@@ -7,6 +7,7 @@ function Mark({ children }: { children: ReactNode }) {
 
 export function Bio() {
   const phrase = MARQUEE.repeat(2);
+  const leeftijd = daanLeeftijd();
   return (
     <section id="bio" aria-labelledby="bio-title">
       <div className="grid lg:grid-cols-12">
@@ -20,7 +21,7 @@ export function Bio() {
             className="crop-portret aspect-square w-full object-cover"
           />
           <div className="border-t border-ink px-5 py-5">
-            <p className="age-num">{DAAN_LEEFTIJD}</p>
+            <p className="age-num">{leeftijd}</p>
             <p className="meta mt-2 text-mute">Jaar · rasechte Rotterdammer</p>
           </div>
         </div>
@@ -33,7 +34,7 @@ export function Bio() {
           </h2>
           <div className="bio-copy mt-6 max-w-2xl">
             <p>
-              Daan Roosenbrand is een rasechte <Mark>Rotterdammer</Mark>, {DAAN_LEEFTIJD} jaar oud,
+              Daan Roosenbrand is een rasechte <Mark>Rotterdammer</Mark>, {leeftijd} jaar oud,
               afgestudeerd aan <Mark>Codarts Rotterdam</Mark>. Hij is{" "}
               <Mark>saxofonist</Mark> én <Mark>klarinettist</Mark>, met een grote voorliefde voor{" "}
               <Mark>lichte muziek</Mark>, en hij beweegt tussen genres zonder het lied kwijt te raken.

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { COORDS, DAAN_LEEFTIJD, SAX_KEYS, STATUS, type SaxKey } from "@/data/daan";
+import { COORDS, daanLeeftijd, SAX_KEYS, STATUS, type SaxKey } from "@/data/daan";
 import { Sax } from "@/components/daan/sax";
 
 const REST: Pick<SaxKey, "n" | "title" | "text"> = {
@@ -61,7 +61,7 @@ export function Hero() {
       </div>
 
       <div className="meta-cell order-4 lg:order-3 lg:col-span-5">
-        <p className="age-num">{DAAN_LEEFTIJD}</p>
+        <p className="age-num">{daanLeeftijd()}</p>
         <p className="meta mt-2 text-mute">Jaar · Rotterdammer</p>
         <p className="mt-5 max-w-md text-lg leading-snug">
           Saxofonist Rotterdam — saxofonist boeken voor solo of een Sax & DJ-set. Klarinettist,

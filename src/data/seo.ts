@@ -1,4 +1,4 @@
-import { TRACKS } from "@/data/daan";
+import { DAAN_GEBOORTEDATUM, TRACKS } from "@/data/daan";
 
 export const SITE_URL = "https://www.daanroosenbrand.nl/";
 export const SITE_TITLE =
@@ -45,6 +45,7 @@ export const jsonLd = JSON.stringify({
       "@type": "Person",
       "@id": `${SITE_URL}#daan`,
       name: "Daan Roosenbrand",
+      birthDate: DAAN_GEBOORTEDATUM,
       url: SITE_URL,
       image: OG_IMAGE,
       jobTitle: ["Saxofonist", "Klarinettist", "Muziekdocent", "Dirigent"],

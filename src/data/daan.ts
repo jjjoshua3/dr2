@@ -1,8 +1,25 @@
 /**
- * Leeftijd van Daan — pas alleen deze regel aan.
- * Hero en biografie lezen dit ene veld.
+ * Geboortedatum van Daan (ISO). Hero en biografie rekenen de leeftijd
+ * hieruit, op de kalender van Nederland — ook na een verjaardag.
  */
-export const DAAN_LEEFTIJD = "XX";
+export const DAAN_GEBOORTEDATUM = "2001-07-02";
+
+export function daanLeeftijd(now = new Date()): number {
+  const [year, month, day] = DAAN_GEBOORTEDATUM.split("-").map(Number);
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Amsterdam",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(now);
+  const value = (type: Intl.DateTimeFormatPartTypes) =>
+    Number(parts.find((part) => part.type === type)?.value);
+  let age = value("year") - year;
+  const monthNow = value("month");
+  const dayNow = value("day");
+  if (monthNow < month || (monthNow === month && dayNow < day)) age -= 1;
+  return age;
+}
 
 export const BOOKING_SUBJECT = "Boeking — Daan Roosenbrand";
 
